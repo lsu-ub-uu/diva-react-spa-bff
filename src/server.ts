@@ -19,6 +19,7 @@ import axios from 'axios';
 import { transformCoraValidationTypes } from './config/transformValidationTypes';
 import { Dependencies } from './formDefinition/formDefinitionsDep';
 import { createFormDefinition } from './formDefinition/formDefinition';
+import personMock from './__mocks__/persons/index.json'
 
 const PORT = process.env.PORT || 8080;
 const { CORA_API_URL } = process.env;
@@ -44,6 +45,18 @@ app.use('/api/translations/:lang', async (req, res) => {
     res.status(500).json('Internal server error');
   }
 });
+
+interface Person {
+  id: number;
+  firstname: string;
+  lastname: string;
+}
+
+app.use('/api/search/:query', async(req, res) => {
+  console.log(req.params.query);
+  const searchResult = personMock.filter((person: Person) => person.firstname.toLowerCase().includes(req.params.query.toLowerCase()))
+  res.status(200).json(searchResult);
+})
 
 app.use('/api/form/:validationTypeId', async (req, res) => {
   try {
