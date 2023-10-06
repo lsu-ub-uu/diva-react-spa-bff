@@ -54,8 +54,17 @@ interface Person {
 
 app.use('/api/search/:query', async(req, res) => {
   console.log(req.params.query);
-  const searchResult = personMock.filter((person: Person) => person.firstname.toLowerCase().includes(req.params.query.toLowerCase()))
-  res.status(200).json(searchResult);
+  const searchResult = personMock.filter((person: Person) => {
+    const searchName = `${person.firstname} ${person.lastname}`;
+    return searchName.toLowerCase().includes(req.params.query.toLowerCase());
+  });
+  const searchOptions = searchResult.map((person: Person) => {
+    return {
+      value: person.id,
+      label: `${person.firstname} ${person.lastname}`,
+    };
+  });
+  res.status(200).json(searchOptions);
 })
 
 app.use('/api/form/:validationTypeId', async (req, res) => {
