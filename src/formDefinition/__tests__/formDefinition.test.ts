@@ -109,7 +109,7 @@ import {
   createFormDefinition,
   createFormMetaData,
   createFormMetaDataPathLookup,
-  findMetadataChildReferenceByNameInDataAndAttributes,
+  findMetadataChildReferenceByPresentationUsingNameInDataAndAttributes,
   firstAttributesExistsInSecond,
   FormMetaData,
   getAttributesForAttributeReferences
@@ -1926,7 +1926,7 @@ describe('formDefinition', () => {
 
   describe('findMetadataChildReferenceByNameInDataAndAttributes', () => {
     it('findMetadataChildReferenceByNameInDataAndAttributes with correct nameInData', () => {
-      const test = findMetadataChildReferenceByNameInDataAndAttributes(
+      const test = findMetadataChildReferenceByPresentationUsingNameInDataAndAttributes(
         dependencies.metadataPool,
         someNewMetadataGroupForMissingChildId.children,
         someMetadataCollectionVariable
@@ -1943,7 +1943,7 @@ describe('formDefinition', () => {
       const pmTextVar = createTextVar('pmTextVar', 'someNameInData', []);
       const childRefs = createChildReferences([mmTextVar.id]);
 
-      const actual = findMetadataChildReferenceByNameInDataAndAttributes(
+      const actual = findMetadataChildReferenceByPresentationUsingNameInDataAndAttributes(
         metadataPool,
         childRefs,
         pmTextVar
@@ -1957,7 +1957,7 @@ describe('formDefinition', () => {
       const pmTextVar = createTextVar('pmTextVar', 'someNameInDataNOT', []);
       const childRefs = createChildReferences([mmTextVar.id]);
 
-      const actual = findMetadataChildReferenceByNameInDataAndAttributes(
+      const actual = findMetadataChildReferenceByPresentationUsingNameInDataAndAttributes(
         metadataPool,
         childRefs,
         pmTextVar
@@ -1983,7 +1983,7 @@ describe('formDefinition', () => {
       const pmTextVar = createTextVar('pmTextVar', 'someNameInData', [pmAttribute.id]);
       const childRefs = createChildReferences([mmTextVar.id]);
 
-      const actual = findMetadataChildReferenceByNameInDataAndAttributes(
+      const actual = findMetadataChildReferenceByPresentationUsingNameInDataAndAttributes(
         metadataPool,
         childRefs,
         pmTextVar
@@ -1999,7 +1999,7 @@ describe('formDefinition', () => {
       const pmTextVar = createTextVar('pmTextVar', 'someNameInData', [mmAttribute.id]);
       const childRefs = createChildReferences([mmTextVar.id]);
 
-      const actual = findMetadataChildReferenceByNameInDataAndAttributes(
+      const actual = findMetadataChildReferenceByPresentationUsingNameInDataAndAttributes(
         metadataPool,
         childRefs,
         pmTextVar
@@ -2016,7 +2016,7 @@ describe('formDefinition', () => {
       const pmTextVar = createTextVar('pmTextVar', 'someNameInData', [pmAttribute.id]);
       const children = createChildReferences([mmTextVar.id]);
 
-      const actual = findMetadataChildReferenceByNameInDataAndAttributes(
+      const actual = findMetadataChildReferenceByPresentationUsingNameInDataAndAttributes(
         metadataPool,
         children,
         pmTextVar
@@ -2034,7 +2034,7 @@ describe('formDefinition', () => {
       const textVar3 = createTextVar('textVar3', 'someNameInData3', [pmAttribute.id]);
       const childRefs = createChildReferences([mmTextVar.id, textVar3.id]);
 
-      const actual = findMetadataChildReferenceByNameInDataAndAttributes(
+      const actual = findMetadataChildReferenceByPresentationUsingNameInDataAndAttributes(
         metadataPool,
         childRefs,
         pmTextVar
@@ -2056,7 +2056,7 @@ describe('formDefinition', () => {
       const pmTextVar = createTextVar('pmTextVar', 'someNameInData', [pmAttribute.id]);
       const childRefs = createChildReferences([mmTextVar.id]);
 
-      const actual = findMetadataChildReferenceByNameInDataAndAttributes(
+      const actual = findMetadataChildReferenceByPresentationUsingNameInDataAndAttributes(
         metadataPool,
         childRefs,
         pmTextVar
@@ -2078,7 +2078,7 @@ describe('formDefinition', () => {
       const pmTextVar = createTextVar('pmTextVar', 'someNameInData', [pmAttribute.id]);
       const childRefs = createChildReferences([mmTextVar.id]);
 
-      const actual = findMetadataChildReferenceByNameInDataAndAttributes(
+      const actual = findMetadataChildReferenceByPresentationUsingNameInDataAndAttributes(
         metadataPool,
         childRefs,
         pmTextVar
@@ -2094,7 +2094,7 @@ describe('formDefinition', () => {
       const pmTextVar = createTextVar('pmTextVar', 'someNameInData', [pmAttribute.id]);
       const childRefsForCurrentGroup = createChildReferences([mmTextVar.id]);
 
-      const actual = findMetadataChildReferenceByNameInDataAndAttributes(
+      const actual = findMetadataChildReferenceByPresentationUsingNameInDataAndAttributes(
         metadataPool,
         childRefsForCurrentGroup,
         pmTextVar
@@ -2111,7 +2111,7 @@ describe('formDefinition', () => {
       const pmTextVar = createTextVar('pmTextVar', 'someNameInData', [pmAttribute.id]);
       const childRefsForCurrentGroup = createChildReferences([mmTextVar.id]);
 
-      const actual = findMetadataChildReferenceByNameInDataAndAttributes(
+      const actual = findMetadataChildReferenceByPresentationUsingNameInDataAndAttributes(
         metadataPool,
         childRefsForCurrentGroup,
         pmTextVar
@@ -2128,7 +2128,7 @@ describe('formDefinition', () => {
       const pmTextVar = createTextVar('pmTextVar', 'someNameInData', [pmAttribute.id]);
       const childRefsForCurrentGroup = createChildReferences([mmTextVar.id]);
 
-      const actual = findMetadataChildReferenceByNameInDataAndAttributes(
+      const actual = findMetadataChildReferenceByPresentationUsingNameInDataAndAttributes(
         metadataPool,
         childRefsForCurrentGroup,
         pmTextVar
@@ -2144,7 +2144,7 @@ describe('formDefinition', () => {
       const pmTextVar = createTextVar('pmTextVar', 'someNameInData', [pmAttribute.id]);
       const childRefsForCurrentGroup = createChildReferences([mmTextVar.id]);
 
-      const actual = findMetadataChildReferenceByNameInDataAndAttributes(
+      const actual = findMetadataChildReferenceByPresentationUsingNameInDataAndAttributes(
         metadataPool,
         childRefsForCurrentGroup,
         pmTextVar
@@ -2160,7 +2160,7 @@ describe('formDefinition', () => {
       const pmTextVar = createTextVar('pmTextVar', 'someNameInData', [pmAttribute.id]);
       const childRefsForCurrentGroup = createChildReferences([mmTextVar.id]);
 
-      const actual = findMetadataChildReferenceByNameInDataAndAttributes(
+      const actual = findMetadataChildReferenceByPresentationUsingNameInDataAndAttributes(
         metadataPool,
         childRefsForCurrentGroup,
         pmTextVar
@@ -2177,7 +2177,7 @@ describe('formDefinition', () => {
       const pmTextVar = createTextVar('pmTextVar', 'someNameInData', [pmAttribute.id]);
       const childRefsForCurrentGroup = createChildReferences([mmTextVar.id]);
 
-      const actual = findMetadataChildReferenceByNameInDataAndAttributes(
+      const actual = findMetadataChildReferenceByPresentationUsingNameInDataAndAttributes(
         metadataPool,
         childRefsForCurrentGroup,
         pmTextVar
