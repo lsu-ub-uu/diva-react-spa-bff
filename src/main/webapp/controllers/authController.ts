@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import * as console from 'console';
-import { requestAuthTokenOnLogin } from '../cora/auth';
+import { deleteAuthTokenFromCora, requestAuthTokenOnLogin } from '../cora/auth';
 import { errorHandler } from '../server';
 import { DataGroup, DataListWrapper } from '../utils/cora-data/CoraData';
 import { getSearchResultDataListBySearchType } from '../cora/record';
@@ -12,11 +12,12 @@ import { getSearchResultDataListBySearchType } from '../cora/record';
  */
 export const postAppTokenToGetAuthToken = async (req: Request, res: Response) => {
   const { user } = req.params;
-  const appToken = req.body.token;
-
+  const authToken = req.body.token;
+  console.log('aT', authToken);
   try {
-    const authToken = await requestAuthTokenOnLogin(user, appToken);
-    res.status(201).json({ authToken });
+    const response = await requestAuthTokenOnLogin(user, authToken);
+    // console.log('authToken', authToken);
+    res.status(201).json({ response });
   } catch (error: unknown) {
     console.log(error);
     const errorResponse = errorHandler(error);
@@ -29,13 +30,14 @@ export const postAppTokenToGetAuthToken = async (req: Request, res: Response) =>
  * @route DELETE /api/auth/:user
  * @access Private
  */
-export const deleteAppTokenFromCora = async (req: Request, res: Response) => {
+export const deleteAuthTokenOnLogout = async (req: Request, res: Response) => {
   const { user } = req.params;
   const appToken = req.body.token;
 
   try {
-    const authToken = await requestAuthTokenOnLogin(user, appToken);
-    res.status(201).json({ authToken });
+    const response = await deleteAuthTokenFromCora(user, appToken);
+    console.log('response', response);
+    res.status(response.status);
   } catch (error: unknown) {
     console.log(error);
     const errorResponse = errorHandler(error);

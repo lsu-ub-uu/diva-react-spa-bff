@@ -60,7 +60,7 @@ export const extractDataFromResult = (record: CoraRecord): Auth => {
   );
 };
 
-export const deleteAuthTokenOnLogout = async (
+export const deleteAuthTokenFromCora = async (
   user: string,
   APP_TOKEN_ADMIN: string | undefined
 ) => {

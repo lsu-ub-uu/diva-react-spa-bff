@@ -1,6 +1,7 @@
 import MockAdapter from 'axios-mock-adapter';
 import axios, { AxiosError } from 'axios';
-import { deleteAuthTokenOnLogout, extractDataFromResult, requestAuthTokenOnLogin } from '../auth';
+import * as console from 'console';
+import { deleteAuthTokenFromCora, extractDataFromResult, requestAuthTokenOnLogin } from '../auth';
 
 const authUser = {
   data: {
@@ -100,11 +101,10 @@ describe('Auth', () => {
       const url = `${rootUrl}${coraUser}`;
 
       mockAxios.onDelete(url).reply(200);
-      const response = await deleteAuthTokenOnLogout(
+      const response = await deleteAuthTokenFromCora(
         coraUser,
         'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
       );
-
       expect(response.status).toEqual(200);
     });
     it('Returns 500 on failed DELETE authtoken from Cora', async () => {
@@ -116,7 +116,7 @@ describe('Auth', () => {
       mockAxios.onDelete(url).reply(500);
 
       try {
-        await deleteAuthTokenOnLogout(coraUser, 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa');
+        await deleteAuthTokenFromCora(coraUser, 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa');
       } catch (error) {
         if (axios.isAxiosError(error)) {
           const castError: AxiosError = <AxiosError>error;
