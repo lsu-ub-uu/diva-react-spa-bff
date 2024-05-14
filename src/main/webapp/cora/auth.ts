@@ -23,10 +23,10 @@ import { CoraRecord, DataGroup } from '../utils/cora-data/CoraData';
 
 import { getFirstDataAtomicValueWithNameInData } from '../utils/cora-data/CoraDataUtilsWrappers';
 
-export async function requestAuthTokenOnLogin(
+export const requestAuthTokenOnLogin = async (
   user: string,
   APP_TOKEN_ADMIN: string | undefined
-): Promise<Auth> {
+): Promise<Auth> => {
   const { CORA_LOGIN_URL } = process.env;
   const rootUrl = `${CORA_LOGIN_URL}/apptoken/`;
 
@@ -37,7 +37,7 @@ export async function requestAuthTokenOnLogin(
 
   const response: AxiosResponse = await axios.post(url, APP_TOKEN_ADMIN, { headers });
   return extractDataFromResult(response.data);
-}
+};
 
 export const extractDataFromResult = (record: CoraRecord): Auth => {
   const dataGroup: DataGroup = record.data;
@@ -58,4 +58,17 @@ export const extractDataFromResult = (record: CoraRecord): Auth => {
     lastName,
     logoutURL
   );
+};
+
+export const deleteAuthTokenOnLogout = async (
+  user: string,
+  APP_TOKEN_ADMIN: string | undefined
+) => {
+  const { CORA_LOGIN_URL } = process.env;
+  const rootUrl = `${CORA_LOGIN_URL}/apptoken/`;
+
+  const url = `${rootUrl}${user}`;
+
+  const response = await axios.delete(url, { data: APP_TOKEN_ADMIN });
+  return response;
 };

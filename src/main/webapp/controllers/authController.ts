@@ -25,6 +25,25 @@ export const postAppTokenToGetAuthToken = async (req: Request, res: Response) =>
 };
 
 /**
+ * @desc Delete appToken to get authToken
+ * @route DELETE /api/auth/:user
+ * @access Private
+ */
+export const deleteAppTokenFromCora = async (req: Request, res: Response) => {
+  const { user } = req.params;
+  const appToken = req.body.token;
+
+  try {
+    const authToken = await requestAuthTokenOnLogin(user, appToken);
+    res.status(201).json({ authToken });
+  } catch (error: unknown) {
+    console.log(error);
+    const errorResponse = errorHandler(error);
+    res.status(errorResponse.status).json(errorResponse).send();
+  }
+};
+
+/**
  * @desc Get loginUnits from Cora
  * @route GET /api/auth/loginUnits
  * @access Public
