@@ -77,6 +77,15 @@ export async function postRecordData<T>(
     'Content-Type': 'application/vnd.uub.record+json',
     Authtoken: `${authToken}`
   };
+
+  if (type !== 'divaOutput') {
+    return {
+      status: 400,
+      data: {
+        message: 'Invalid type. Allowed type is divaOutput.'
+      }
+    } as AxiosResponse<T>;
+  }
   const response: AxiosResponse<T> = await axios.post(apiUrl, payload, { headers });
   return response;
 }

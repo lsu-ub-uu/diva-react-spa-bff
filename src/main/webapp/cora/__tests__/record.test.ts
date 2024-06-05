@@ -245,20 +245,12 @@ describe('record', () => {
       };
       const authToken = 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa';
       const expectedResponse = {
-        status: 400
+        message: 'Invalid type. Allowed type is divaOutput.'
       };
       const apiUrl: string = `/record/${type}`;
       mockAxios.onPost(apiUrl).reply(400, expectedResponse);
-
-      try {
-        await postRecordData(actual, type, authToken);
-      } catch (error) {
-        if (axios.isAxiosError(error)) {
-          expect(error).toBeInstanceOf(AxiosError);
-          const castError: AxiosError = <AxiosError>error;
-          expect(castError.response?.status).toBe(400);
-        }
-      }
+      const response = await postRecordData(actual, type, authToken);
+      expect(response.data).toEqual(expect.objectContaining(expectedResponse));
     });
   });
 
