@@ -47,7 +47,7 @@ GET http://localhost:8080/api/search/form/divaOutputSearch
 Authtoken: 12f03a83-8f19-4fb5-90cf-a7fe5641cbdd
 
 ###
-GET http://localhost:8080/api/search/results/personSearch?searchTermValue=*
+GET http://localhost:8080/api/search/results/divaOutputSearch?searchTermValue=*
 
 ###
 GET http://localhost:8080/api/translations/sv

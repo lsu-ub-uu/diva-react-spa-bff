@@ -18,6 +18,7 @@
  */
 
 import { Request, Response } from 'express';
+import * as console from 'console';
 import { DataGroup, DataListWrapper } from '../utils/cora-data/CoraData';
 import { getSearchResultDataListBySearchType } from '../cora/record';
 import { errorHandler } from '../server';
@@ -40,12 +41,13 @@ export const getPublicSearchForm = async (req: Request, res: Response) => {
     const searchPresentationGroup = dependencies.presentationPool.get(
       searchFromPool.presentationId
     );
-
+    console.log(searchFromPool);
     const searchForm = createLinkedRecordDefinition(
       dependencies,
       searchMetadataGroup,
       searchPresentationGroup
     );
+    searchForm.form.search = searchFromPool.recordTypeToSearchIn[0];
     res.status(200).json(searchForm);
   } catch (error: unknown) {
     const errorResponse = errorHandler(error);
@@ -61,6 +63,7 @@ export const getPublicSearchForm = async (req: Request, res: Response) => {
 export const getPublicSearchResult = async (req: Request, res: Response) => {
   try {
     const { searchTermValue } = req.query;
+
     const searchLink = req.path.split('/')[2];
 
     const searchTermName = getSearchTermNameFromSearchLink(dependencies, searchLink);
