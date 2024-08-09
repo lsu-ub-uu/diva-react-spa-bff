@@ -28,14 +28,40 @@ import { BFFMetadataGroup } from '../config/bffTypes';
 import { getSearchTermNameFromSearchLink } from '../cora/search';
 
 /**
- * @desc Get result of a public person search
+ * @desc Get a public person search form
+ * @route GET /api/search/form
+ * @access Public
+ */
+export const getPublicSearchForm = async (req: Request, res: Response) => {
+  try {
+    const { searchId } = req.params;
+    const searchFromPool = dependencies.searchPool.get(searchId);
+    const searchMetadataGroup = dependencies.metadataPool.get(searchFromPool.metadataId);
+    const searchPresentationGroup = dependencies.presentationPool.get(
+      searchFromPool.presentationId
+    );
+
+    const searchForm = createLinkedRecordDefinition(
+      dependencies,
+      searchMetadataGroup,
+      searchPresentationGroup
+    );
+    res.status(200).json(searchForm);
+  } catch (error: unknown) {
+    const errorResponse = errorHandler(error);
+    res.status(errorResponse.status).json(errorResponse).send();
+  }
+};
+
+/**
+ * @desc Get result of a public search
  * @route GET /api/search
  * @access Public
  */
 export const getPublicSearchResult = async (req: Request, res: Response) => {
   try {
     const { searchTermValue } = req.query;
-    const searchLink = req.path.split('/')[1];
+    const searchLink = req.path.split('/')[2];
 
     const searchTermName = getSearchTermNameFromSearchLink(dependencies, searchLink);
 

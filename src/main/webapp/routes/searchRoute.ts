@@ -18,10 +18,11 @@
  */
 
 import express from 'express';
-import { getPublicSearchResult } from '../controllers/searchController';
+import { getPublicSearchForm, getPublicSearchResult } from '../controllers/searchController';
 
 const searchRoute = express.Router();
 
-searchRoute.route('/:searchType').get(getPublicSearchResult);
+searchRoute.route('/form/:searchId').get(getPublicSearchForm);
+searchRoute.route('/results/:searchType').get(getPublicSearchResult);
 
 export { searchRoute };

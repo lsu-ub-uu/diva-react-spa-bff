@@ -21,7 +21,7 @@ Authtoken:
 ###
 DELETE https://cora.epc.ub.uu.se/diva/spaclientbff/api/auth/coraUser:490742519075086
 Content-Type: text/plain;charset=UTF-8
-Authtoken: 11a379d7-8686-43f2-b48a-6bd18b2a3133
+Authtoken: 12f03a83-8f19-4fb5-90cf-a7fe5641cbdd
 
 ###
 POST http://localhost:8080/api/auth/coraUser:490742519075086
@@ -39,10 +39,15 @@ Authtoken: a1003a97-9165-4ec4-98e4-a9f3e60536b1
 GET http://localhost:8080
 
 ###
-GET http://localhost:8080/api/search/nationalSubjectCategorySearch?searchTermValue=*
+GET http://localhost:8080/api/search/results/nationalSubjectCategorySearch?searchTermValue=*
+Authtoken: 12f03a83-8f19-4fb5-90cf-a7fe5641cbdd
 
 ###
-GET http://localhost:8080/api/search/personSearch?searchTermValue=*
+GET http://localhost:8080/api/search/form/divaOutputSearch
+Authtoken: 12f03a83-8f19-4fb5-90cf-a7fe5641cbdd
+
+###
+GET http://localhost:8080/api/search/results/personSearch?searchTermValue=*
 
 ###
 GET http://localhost:8080/api/translations/sv
