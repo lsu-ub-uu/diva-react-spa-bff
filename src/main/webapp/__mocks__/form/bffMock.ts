@@ -678,7 +678,8 @@ export const pSomeMetadataNumberWithAttributeVar: BFFPresentation = {
   presentationOf: 'someMetadataNumberWithAttributeVarId',
   mode: 'input',
   type: 'pNumVar',
-  emptyTextId: 'someEmptyTextId'
+  emptyTextId: 'someEmptyTextId',
+  attributesToShow: 'none'
 };
 
 export const pSomeMetadataTextVariable: BFFPresentation = {
