@@ -18,6 +18,7 @@
  */
 
 import _ from 'lodash';
+import * as console from 'console';
 import {
   Attributes,
   DataAtomic,
@@ -171,8 +172,8 @@ export const transformRecord = (
   if (coraRecord.actionLinks !== undefined) {
     userRights = Object.keys(coraRecord.actionLinks);
   }
-
   const data = traverseDataGroup(dataRecordGroup, formPathLookup);
+  // console.log('data', data);
   return removeEmpty({
     id,
     recordType,
@@ -212,8 +213,11 @@ export const traverseDataGroup = (
   const groupAttributes = transformObjectAttributes(dataGroup.attributes);
 
   const object: unknown[] = [];
+  // console.log('tDG', validChildren);
   groupedEntries.forEach(([name, groupedChildren]) => {
+    console.log('fE1', name, groupedChildren);
     const currentPath = path ? `${path}.${name}` : name;
+    console.log('fE2', currentPath);
 
     // iterate over the name array
     let repeating = false;
@@ -249,6 +253,7 @@ export const traverseDataGroup = (
       }
 
       if (isDataAtomic(child) && !isRepeating(child, currentPath, formPathLookup)) {
+        console.log('!iR', child);
         repeating = false;
         isGroup = false;
         const dataAtomic = child as DataAtomic;
@@ -258,6 +263,7 @@ export const traverseDataGroup = (
       }
 
       if (isDataAtomic(child) && isRepeating(child, currentPath, formPathLookup)) {
+        console.log('iR', child);
         repeating = true;
         isGroup = false;
         const dataAtomic = child as DataAtomic;
@@ -275,6 +281,6 @@ export const traverseDataGroup = (
       object.push(Object.assign({}, ...thisLevelChildren));
     }
   });
-
+  console.log('obj', object);
   return { [dataGroup.name]: Object.assign({}, ...[...object, ...groupAttributes]) };
 };

@@ -18,6 +18,7 @@
  */
 
 import { Request, Response } from 'express';
+import * as console from 'console';
 import { DataGroup, DataListWrapper } from '../utils/cora-data/CoraData';
 import { getSearchResultDataListBySearchType } from '../cora/record';
 import { errorHandler } from '../server';
@@ -67,9 +68,9 @@ export const getPublicSearchResult = async (req: Request, res: Response) => {
       searchQuery,
       authToken
     );
-
+    // console.log('response', response);
     const transformedRecords = transformRecords(dependencies, response.data);
-
+    // console.log('tR', JSON.stringify(transformedRecords, null, 2));
     transformedRecords.forEach((transformedRecord) => {
       const recordType = dependencies.recordTypePool.get(transformedRecord.recordType);
       const { listPresentationViewId } = recordType;
