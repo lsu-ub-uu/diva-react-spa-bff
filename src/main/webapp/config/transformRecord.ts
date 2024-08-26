@@ -18,7 +18,6 @@
  */
 
 import _ from 'lodash';
-import * as console from 'console';
 import {
   Attributes,
   DataAtomic,
@@ -77,6 +76,7 @@ export function isRepeating(
   currentPath: string,
   formPathLookup?: Record<string, FormMetaData>
 ) {
+  // console.log('i', item, 'c', currentPath, 'f', formPathLookup)
   const lookup = formPathLookup ?? {};
   const formComponent = lookup[currentPath];
   let isFormDataRepeating = false;
@@ -215,9 +215,9 @@ export const traverseDataGroup = (
   const object: unknown[] = [];
   // console.log('tDG', validChildren);
   groupedEntries.forEach(([name, groupedChildren]) => {
-    console.log('fE1', name, groupedChildren);
+    // console.log('fE1', name, groupedChildren);
     const currentPath = path ? `${path}.${name}` : name;
-    console.log('fE2', currentPath);
+    // console.log('fE2', currentPath);
 
     // iterate over the name array
     let repeating = false;
@@ -253,7 +253,7 @@ export const traverseDataGroup = (
       }
 
       if (isDataAtomic(child) && !isRepeating(child, currentPath, formPathLookup)) {
-        console.log('!iR', child);
+        console.log('!iR', formPathLookup);
         repeating = false;
         isGroup = false;
         const dataAtomic = child as DataAtomic;
@@ -262,7 +262,7 @@ export const traverseDataGroup = (
         return { [name]: Object.assign({ value }, ...atomicAttributes) };
       }
 
-      if (isDataAtomic(child) && isRepeating(child, currentPath, formPathLookup)) {
+      if (isDataAtomic(child) && isRepeating(child, currentPath)) {
         console.log('iR', child);
         repeating = true;
         isGroup = false;
@@ -281,6 +281,6 @@ export const traverseDataGroup = (
       object.push(Object.assign({}, ...thisLevelChildren));
     }
   });
-  console.log('obj', object);
+  // console.log('obj', object);
   return { [dataGroup.name]: Object.assign({}, ...[...object, ...groupAttributes]) };
 };
