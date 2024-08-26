@@ -18,7 +18,6 @@
  */
 
 import _ from 'lodash';
-import * as console from 'console';
 import {
   Attributes,
   DataAtomic,
@@ -85,6 +84,20 @@ export function isRepeating(
   }
   return Object.hasOwn(item, 'repeatId') || isFormDataRepeating;
 }
+
+export const hasSameNameInDatas = (
+  children: (DataGroup | DataAtomic | RecordLink)[],
+  currentName: string
+) => {
+  const nameInDatas: string[] = [];
+
+  children.map((child) => {
+    nameInDatas.push(child.name);
+  });
+
+  const numberOfOccurrences = nameInDatas.reduce((a, v) => (v === currentName ? a + 1 : a), 0);
+  return numberOfOccurrences > 1;
+};
 
 const extractRecordInfoDataGroup = (coraRecordGroup: DataGroup): DataGroup => {
   return getFirstDataGroupWithNameInData(coraRecordGroup, 'recordInfo') as DataGroup;
@@ -173,7 +186,6 @@ export const transformRecord = (
     userRights = Object.keys(coraRecord.actionLinks);
   }
   const data = traverseDataGroup(dataRecordGroup, formPathLookup);
-  // console.log('data', data);
   return removeEmpty({
     id,
     recordType,
@@ -213,11 +225,10 @@ export const traverseDataGroup = (
   const groupAttributes = transformObjectAttributes(dataGroup.attributes);
 
   const object: unknown[] = [];
-  // console.log('tDG', validChildren);
   groupedEntries.forEach(([name, groupedChildren]) => {
-    console.log('fE1', name, groupedChildren);
     const currentPath = path ? `${path}.${name}` : name;
-    console.log('fE2', currentPath);
+
+    // kolla om variabel med samma nameInData men olika attribut
 
     // iterate over the name array
     let repeating = false;
@@ -252,24 +263,26 @@ export const traverseDataGroup = (
         return traverseDataGroup(childGroup, formPathLookup, currentPath);
       }
 
-      if (isDataAtomic(child) && !isRepeating(child, currentPath, formPathLookup)) {
-        console.log('!iR', child);
-        repeating = false;
-        isGroup = false;
-        const dataAtomic = child as DataAtomic;
-        const atomicAttributes = transformObjectAttributes(dataAtomic.attributes);
-        const { value } = child as DataAtomic;
-        return { [name]: Object.assign({ value }, ...atomicAttributes) };
-      }
-
-      if (isDataAtomic(child) && isRepeating(child, currentPath, formPathLookup)) {
-        console.log('iR', child);
+      if (
+        isDataAtomic(child) &&
+        (isRepeating(child, currentPath, formPathLookup) ||
+          hasSameNameInDatas(groupedChildren, child.name))
+      ) {
         repeating = true;
         isGroup = false;
         const dataAtomic = child as DataAtomic;
         const atomicAttributes = transformObjectAttributes(dataAtomic.attributes);
         const { value } = child as DataAtomic;
         return Object.assign({ value }, ...atomicAttributes);
+      }
+
+      if (isDataAtomic(child) && !isRepeating(child, currentPath, formPathLookup)) {
+        repeating = false;
+        isGroup = false;
+        const dataAtomic = child as DataAtomic;
+        const atomicAttributes = transformObjectAttributes(dataAtomic.attributes);
+        const { value } = child as DataAtomic;
+        return { [name]: Object.assign({ value }, ...atomicAttributes) };
       }
     });
 
@@ -281,6 +294,5 @@ export const traverseDataGroup = (
       object.push(Object.assign({}, ...thisLevelChildren));
     }
   });
-  console.log('obj', object);
   return { [dataGroup.name]: Object.assign({}, ...[...object, ...groupAttributes]) };
 };

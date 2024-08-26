@@ -21,9 +21,11 @@ import recordManuscript from '../../__mocks__/coraRecordManuscript.json';
 import recordManuscriptWithoutCreatedAndUpdates from '../../__mocks__/coraRecordManuscriptPublicWithoutSensitiveData.json';
 import coraNationalSubjectCategories from '../../__mocks__/coraNationalSubjectCategories.json';
 import {
+  hasSameNameInDatas,
   isDataAtomic,
   isDataGroup,
   isRecordLink,
+  isRepeating,
   transformObjectAttributes,
   transformRecord,
   transformRecords,
@@ -611,13 +613,178 @@ describe('transformRecord', () => {
     expect(transformData).toStrictEqual(expected);
   });
 
+  it('should return a root group with non repeating variable having same nameInData but different attributes', () => {
+    const test = {
+      name: 'nationalSubjectCategory',
+      children: [
+        {
+          name: 'subject',
+          value: 'Naturvetenskap',
+          attributes: {
+            language: 'swe'
+          }
+        },
+        {
+          name: 'subject',
+          value: 'Natural sciences',
+          attributes: {
+            language: 'eng'
+          }
+        },
+        {
+          name: 'code',
+          value: '1'
+        }
+      ]
+    };
+    const transformData = traverseDataGroup(test);
+    const expected = {
+      nationalSubjectCategory: {
+        subject: [
+          {
+            value: 'Naturvetenskap',
+            _language: 'swe'
+          },
+          {
+            value: 'Natural sciences',
+            _language: 'eng'
+          }
+        ],
+        code: {
+          value: '1'
+        }
+      }
+    };
+    expect(transformData).toStrictEqual(expected);
+  });
+
   describe('transformRecords', () => {
-    it.skip('should be able to transform a DataListWrapper to something', () => {
-      const expected = transformRecords(
-        dependencies,
-        coraNationalSubjectCategories as DataListWrapper
+    it('isDataGroup return true', () => {
+      const actual = isDataGroup({
+        name: 'isGroup',
+        children: []
+      });
+
+      expect(actual).toBeTruthy();
+    });
+
+    it('isDataGroup return false', () => {
+      const actual = isDataGroup({
+        name: 'isAtomic',
+        value: 'notAGroup'
+      });
+
+      expect(actual).toBeFalsy();
+    });
+
+    it('isDataAtomic return true', () => {
+      const actual = isDataAtomic({
+        name: 'isAtomic',
+        value: 'notAGroup'
+      });
+      expect(actual).toBeTruthy();
+    });
+
+    it('isDataAtomic return false', () => {
+      const actual = isDataAtomic({
+        name: 'isGroup',
+        children: []
+      });
+      expect(actual).toBeFalsy();
+    });
+
+    it('isRecordLink return false for not DataGroup', () => {
+      const actual = isRecordLink({
+        name: 'isAtomic',
+        value: 'notARecordLink'
+      });
+
+      expect(actual).toBeFalsy();
+    });
+
+    it('isRecordLink return true for RecordLink', () => {
+      const actual = isRecordLink({
+        name: 'isGroup',
+        children: [
+          {
+            name: 'linkedRecordType',
+            value: 'aLinkedRecordType'
+          },
+          {
+            name: 'linkedRecordId',
+            value: 'aLinkedRecordId'
+          }
+        ]
+      });
+      expect(actual).toBeTruthy();
+    });
+
+    it('isRepeating return false for repeating', () => {
+      const actual = isRepeating({ name: 'domain', value: 'hh' }, 'divaOutput.domain', {
+        'divaOutput.domain': {
+          name: 'domain',
+          type: 'collectionVariable',
+          repeat: { repeatMin: 1, repeatMax: 1 }
+        }
+      });
+
+      expect(actual).toBeFalsy();
+    });
+
+    it('isRepeating return true for repeating', () => {
+      const actual = isRepeating({ name: 'domain', value: 'hh' }, 'divaOutput.domain', {
+        'divaOutput.domain': {
+          name: 'domain',
+          type: 'collectionVariable',
+          repeat: { repeatMin: 0, repeatMax: 1 }
+        }
+      });
+
+      expect(actual).toBeTruthy();
+    });
+
+    it('transformObjectAttributes convert empty attributes', () => {
+      const actual = transformObjectAttributes(undefined);
+      expect(actual).toStrictEqual([]);
+    });
+
+    it('transformObjectAttributes convert attributes', () => {
+      const actual = transformObjectAttributes({ colour: 'red' });
+      expect(actual).toStrictEqual([{ _colour: 'red' }]);
+    });
+
+    it('hasSameNameInDatas returns true when multiple siblings exist', () => {
+      const actual = hasSameNameInDatas(
+        [
+          {
+            name: 'subject',
+            value: 'Naturvetenskap',
+            attributes: { language: 'swe' }
+          },
+          {
+            name: 'subject',
+            value: 'Natural sciences',
+            attributes: { language: 'eng' }
+          },
+          { name: 'code', value: '1' }
+        ],
+        'subject'
       );
-      console.log(JSON.stringify(expected, null, 4));
+      expect(actual).toBeTruthy();
+    });
+    it('hasSameNameInDatas returns false when single', () => {
+      const actual = hasSameNameInDatas(
+        [
+          {
+            name: 'subject',
+            value: 'Natural sciences',
+            attributes: { language: 'eng' }
+          },
+          { name: 'code', value: '1' }
+        ],
+        'subject'
+      );
+      expect(actual).toBeFalsy();
     });
   });
 });
