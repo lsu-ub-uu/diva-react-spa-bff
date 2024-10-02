@@ -111,7 +111,8 @@ import {
   someMetadataCollectionWithOtherIdVariable,
   someMetadataCollectionVariable2,
   someNewRecordLink,
-  pSomeNewRecordLink
+  pSomeNewRecordLink,
+  someEditMetadataGroupForMissingChildIdId
 } from '../../__mocks__/form/bffMock';
 import {
   createFormDefinition,
@@ -178,6 +179,7 @@ describe('formDefinition', () => {
       someLocalIdTextVar,
       someScopusIdTextVar,
       someNewMetadataGroupForMissingChildId,
+      someEditMetadataGroupForMissingChildIdId,
       exampleOtherCollectionVarId,
       someMainTitleTextVariable,
       someMetadataNumberVarWithoutAttribute,
@@ -247,6 +249,7 @@ describe('formDefinition', () => {
     const metadata: BFFMetadataTextVariable = {
       id,
       nameInData,
+      dataDivider: 'someDataDivider',
       type: 'textVariable',
       textId: 'someTextId',
       defTextId: 'someDefTextId',
@@ -286,6 +289,7 @@ describe('formDefinition', () => {
     const metadata: BFFMetadata = {
       id: `${nameInData}Item`,
       nameInData,
+      dataDivider: 'someDataDivider',
       type: 'collectionItem',
       textId: 'someTextId',
       defTextId: 'someDefTextId'
@@ -303,6 +307,7 @@ describe('formDefinition', () => {
     const metadata: BFFMetadataItemCollection = {
       id,
       nameInData,
+      dataDivider: 'someDataDivider',
       type: 'itemCollection',
       textId: 'someTextId',
       defTextId: 'someDefTextId',
@@ -328,6 +333,7 @@ describe('formDefinition', () => {
     const metadata: BFFMetadataCollectionVariable = {
       id,
       nameInData,
+      dataDivider: 'someDataDivider',
       type: 'collectionVariable',
       textId: 'someTextId',
       defTextId: 'someDefTextId',
@@ -361,6 +367,7 @@ describe('formDefinition', () => {
     const metadata: BFFMetadataCollectionVariable = {
       id,
       nameInData,
+      dataDivider: 'someDataDivider',
       type: 'collectionVariable',
       textId: 'someTextId',
       defTextId: 'someDefTextId',
@@ -411,6 +418,7 @@ describe('formDefinition', () => {
     const metadata: BFFMetadataGroup = {
       id,
       nameInData,
+      dataDivider: 'someDataDivider',
       type: 'group',
       textId: 'someTextId',
       defTextId: 'someDefTextId',
@@ -567,6 +575,7 @@ describe('formDefinition', () => {
       expect(formDefinition.form.components).toHaveLength(19);
       expect(formDefinition).toStrictEqual({
         validationTypeId,
+        dataDivider: 'someDataDivider',
         form: {
           type: 'group',
           label: 'textId345',
@@ -1237,6 +1246,7 @@ describe('formDefinition', () => {
       expect(formDefinition.form.components).toHaveLength(16);
       expect(formDefinition).toStrictEqual({
         validationTypeId,
+        dataDivider: 'someDataDivider',
         form: {
           type: 'group',
           label: 'textId345',
@@ -1784,6 +1794,7 @@ describe('formDefinition', () => {
       expect(formDefinition.form.components).toHaveLength(1);
       expect(formDefinition).toStrictEqual({
         validationTypeId,
+        dataDivider: 'someDataDivider',
         form: {
           type: 'group',
           gridColSpan: 12,
@@ -1841,6 +1852,17 @@ describe('formDefinition', () => {
         'someMetadataTextVariable6Id'
       ]);
 
+      const metaDataGroupNew = createGroup(
+        'somevalidationTypeIdMetadataGroupId',
+        'somevalidationTypeIdMetadataGroupId',
+        ['someMetadataTextVariable6Id']
+      );
+      const metaDataGroupEdit = createGroup(
+        'somevalidationTypeIdEditMetadataGroupId',
+        'somevalidationTypeIdMetadataGroupId',
+        ['someMetadataTextVariable6Id']
+      );
+      // console.log(dependencies.metadataPool.get(metaDataGroupNew.id));
       const presentationChild = {
         childId: 'pSomeMetadataTextVariable6Id',
         type: 'presentation'
@@ -1853,6 +1875,7 @@ describe('formDefinition', () => {
       expect(formDefinition.form.components).toHaveLength(1);
       expect(formDefinition).toStrictEqual({
         validationTypeId,
+        dataDivider: 'someDataDivider',
         form: {
           childStyle: [''],
           components: [
@@ -2965,6 +2988,7 @@ describe('formDefinition', () => {
       createPresentationVar('abstractPVar', 'abstractTextVar', 'presentation');
       createPresentationVar('abstract2PVar', 'abstract2TextVar', 'presentation');
       createGroup('somethesisManuscriptMetadataGroupId', 'divaOutput', ['abstractTextVar']);
+      createGroup('somethesisManuscriptEditMetadataGroupId', 'divaOutput', ['abstractTextVar']);
       createPresentationGroup('pSomedivaOutputNewMetadataGroupId', 'divaOutputGroup', [
         {
           childId: 'abstractPVar',
@@ -2979,6 +3003,7 @@ describe('formDefinition', () => {
 
       const formDefinition = createFormDefinition(dependencies, 'thesisManuscript', FORM_MODE_NEW);
       expect(formDefinition).toStrictEqual({
+        dataDivider: 'someDataDivider',
         form: {
           childStyle: [''],
           components: [

@@ -17,9 +17,11 @@
  *     along with DiVA Client.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+import * as console from 'console';
 import { DataGroup, DataListWrapper, RecordLink, RecordWrapper } from '../utils/cora-data/CoraData';
 import {
   extractAttributeValueByName,
+  extractDataDividerFromRecordInfo,
   extractIdFromRecordInfo,
   extractLinkedRecordIdFromNamedRecordLink
 } from '../utils/cora-data/CoraDataTransforms';
@@ -92,6 +94,7 @@ const transformRecordGroupMetadataToBFF = (dataRecordGroup: DataGroup) => {
 
 const transformBasicMetadata = (dataRecordGroup: DataGroup) => {
   const id = extractIdFromRecordInfo(dataRecordGroup);
+  const dataDivider = extractDataDividerFromRecordInfo(dataRecordGroup);
   const nameInData = getFirstDataAtomicValueWithNameInData(dataRecordGroup, 'nameInData');
   const type = extractAttributeValueByName(dataRecordGroup, 'type');
   const textId = extractLinkedRecordIdFromNamedRecordLink(dataRecordGroup, 'textId');
@@ -99,6 +102,7 @@ const transformBasicMetadata = (dataRecordGroup: DataGroup) => {
 
   return {
     id,
+    dataDivider,
     nameInData,
     type,
     textId,

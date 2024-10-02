@@ -43,6 +43,28 @@ export const someValidationTypeForMissingChildIdTypeData: BFFValidationType = {
 
 export const someNewMetadataGroupForMissingChildId: BFFMetadataGroup = {
   id: 'someNewMetadataGroupForMissingChildIdId',
+  dataDivider: 'someDataDivider',
+  nameInData: 'divaOutput',
+  type: 'group',
+  textId: '',
+  defTextId: '',
+  children: [
+    {
+      childId: 'mainTitle',
+      repeatMin: '0',
+      repeatMax: '1'
+    },
+    {
+      childId: 'exampleCollectionVarId',
+      repeatMin: '0',
+      repeatMax: '1'
+    }
+  ]
+};
+
+export const someEditMetadataGroupForMissingChildIdId: BFFMetadataGroup = {
+  id: 'someEditMetadataGroupForMissingChildIdId',
+  dataDivider: 'someDataDivider',
   nameInData: 'divaOutput',
   type: 'group',
   textId: '',
@@ -91,6 +113,7 @@ export const someManuscriptValidationTypeData: BFFValidationType = {
 
 export const someManuscriptEditMetadataGroup: BFFMetadataGroup = {
   id: 'someManuscriptEditMetadataGroupId',
+  dataDivider: 'someDataDivider',
   nameInData: 'divaOutput',
   type: 'group',
   textId: '',
@@ -107,6 +130,7 @@ export const someManuscriptEditMetadataGroup: BFFMetadataGroup = {
 export const someAlternativeTitleMetadataChildGroup: BFFMetadataGroup = {
   id: 'alternativeTitle',
   nameInData: 'alternativeTitle',
+  dataDivider: 'someDataDivider',
   type: 'group',
   textId: '',
   defTextId: '',
@@ -126,6 +150,7 @@ export const someAlternativeTitleMetadataChildGroup: BFFMetadataGroup = {
 
 export const someMainTitleTextVariable: BFFMetadataTextVariable = {
   id: 'mainTitle',
+  dataDivider: 'someDataDivider',
   nameInData: 'mainTitle',
   type: 'textVariable',
   textId: 'someTextId',
@@ -135,6 +160,7 @@ export const someMainTitleTextVariable: BFFMetadataTextVariable = {
 
 export const someSubTitleTextVariable: BFFMetadataTextVariable = {
   id: 'subTitle',
+  dataDivider: 'someDataDivider',
   nameInData: 'subTitle',
   type: 'textVariable',
   textId: 'someTextId',
@@ -144,6 +170,7 @@ export const someSubTitleTextVariable: BFFMetadataTextVariable = {
 
 export const someNewMetadataGroup: BFFMetadataGroup = {
   id: 'someNewMetadataGroupId',
+  dataDivider: 'someDataDivider',
   nameInData: 'someNewMetadataGroupNameInData',
   type: 'group',
   textId: 'textId345',
@@ -249,6 +276,7 @@ export const someNewMetadataGroup: BFFMetadataGroup = {
 
 export const someEditMetadataGroup: BFFMetadataGroup = {
   id: 'someEditMetadataGroupId',
+  dataDivider: 'someDataDivider',
   nameInData: 'someEditMetadataGroupNameInData',
   type: 'group',
   textId: 'textId345',
@@ -339,6 +367,7 @@ export const someEditMetadataGroup: BFFMetadataGroup = {
 
 export const someMetadataChildGroup: BFFMetadataGroup = {
   id: 'someMetadataChildGroupId',
+  dataDivider: 'someDataDivider',
   nameInData: 'someChildGroupNameInData',
   type: 'group',
   textId: 'someChildGroupTextId',
@@ -354,6 +383,7 @@ export const someMetadataChildGroup: BFFMetadataGroup = {
 
 export const someMetadataChildGroupWithSpecifiedHeadlineText: BFFMetadataGroup = {
   id: 'someMetadataChildGroupWithSpecifiedHeadlineTextId',
+  dataDivider: 'someDataDivider',
   nameInData: 'someMetadataChildGroupWithSpecifiedHeadlineTextNameInData',
   type: 'group',
   textId: 'someChildGroupTextId',
@@ -368,6 +398,7 @@ export const someMetadataChildGroupWithSpecifiedHeadlineText: BFFMetadataGroup =
 };
 export const someMetadataChildGroupWithShowHeadlineFalse: BFFMetadataGroup = {
   id: 'someMetadataChildGroupWithShowHeadlineFalseId',
+  dataDivider: 'someDataDivider',
   nameInData: 'someMetadataChildGroupWithShowHeadlineFalseNameInData',
   type: 'group',
   textId: 'someChildGroupTextId',
@@ -383,6 +414,7 @@ export const someMetadataChildGroupWithShowHeadlineFalse: BFFMetadataGroup = {
 
 export const someMetadataTextVariable: BFFMetadataTextVariable = {
   id: 'someMetadataTextVariableId',
+  dataDivider: 'someDataDivider',
   nameInData: 'someNameInData',
   type: 'textVariable',
   textId: 'someTextId',
@@ -392,6 +424,7 @@ export const someMetadataTextVariable: BFFMetadataTextVariable = {
 
 export const someMetadataTextVariable2: BFFMetadataTextVariable = {
   id: 'someMetadataTextVariable2Id',
+  dataDivider: 'someDataDivider',
   nameInData: 'someNameInData2',
   type: 'textVariable',
   textId: 'someTextId',
@@ -401,6 +434,7 @@ export const someMetadataTextVariable2: BFFMetadataTextVariable = {
 
 export const someMetadataTextVariable3: BFFMetadataTextVariable = {
   id: 'someMetadataTextVariable3Id',
+  dataDivider: 'someDataDivider',
   nameInData: 'someNameInData3',
   type: 'textVariable',
   textId: 'someTextId',
@@ -410,6 +444,7 @@ export const someMetadataTextVariable3: BFFMetadataTextVariable = {
 };
 export const someMetadataTextVariable4: BFFMetadataTextVariable = {
   id: 'someMetadataTextVariable4Id',
+  dataDivider: 'someDataDivider',
   nameInData: 'someNameInData4',
   type: 'textVariable',
   textId: 'someTextId',
@@ -418,6 +453,7 @@ export const someMetadataTextVariable4: BFFMetadataTextVariable = {
 };
 export const someMetadataTextVariable5: BFFMetadataTextVariable = {
   id: 'someMetadataTextVariable5Id',
+  dataDivider: 'someDataDivider',
   nameInData: 'someNameInData5',
   type: 'textVariable',
   textId: 'someTextId',
@@ -426,6 +462,7 @@ export const someMetadataTextVariable5: BFFMetadataTextVariable = {
 };
 export const someMetadataTextVariable6: BFFMetadataTextVariable = {
   id: 'someMetadataTextVariable6Id',
+  dataDivider: 'someDataDivider',
   nameInData: 'someNameInData6',
   type: 'textVariable',
   textId: 'someTextId',
@@ -435,6 +472,7 @@ export const someMetadataTextVariable6: BFFMetadataTextVariable = {
 
 export const someMetadataTextVariableWithAttributeVar: BFFMetadataTextVariable = {
   id: 'someMetadataTextVariableWithAttributeVarId',
+  dataDivider: 'someDataDivider',
   nameInData: 'someNameInDataTextWithAttrib',
   type: 'textVariable',
   textId: 'someTextId',
@@ -449,6 +487,7 @@ export const someMetadataTextVariableWithAttributeVar: BFFMetadataTextVariable =
 
 export const someMetadataNumberVar: BFFMetadataNumberVariable = {
   id: 'someMetadataNumberVarId',
+  dataDivider: 'someDataDivider',
   nameInData: 'someNameInDataNumberVar',
   type: 'numberVariable',
   textId: 'someNumberVarTextId',
@@ -462,6 +501,7 @@ export const someMetadataNumberVar: BFFMetadataNumberVariable = {
 
 export const someMetadataNumberVarWithAttribute: BFFMetadataNumberVariable = {
   id: 'someMetadataNumberWithAttributeVarId',
+  dataDivider: 'someDataDivider',
   nameInData: 'someNameInDataNumberWithAttributeVar',
   type: 'numberVariable',
   textId: 'someNumberVarTextId',
@@ -479,6 +519,7 @@ export const someMetadataNumberVarWithAttribute: BFFMetadataNumberVariable = {
 };
 export const someMetadataNumberVarWithAttributeAndOtherId: BFFMetadataNumberVariable = {
   id: 'someMetadataNumberWithAttributeVar2Id',
+  dataDivider: 'someDataDivider',
   nameInData: 'someNameInDataNumberWithAttributeVar',
   type: 'numberVariable',
   textId: 'someNumberVarTextId',
@@ -496,6 +537,7 @@ export const someMetadataNumberVarWithAttributeAndOtherId: BFFMetadataNumberVari
 };
 export const someMetadataNumberVarWithOtherAttributeId: BFFMetadataNumberVariable = {
   id: 'someMetadataNumberWithAttributeVar2Id',
+  dataDivider: 'someDataDivider',
   nameInData: 'someNameInDataNumberWithAttributeVar',
   type: 'numberVariable',
   textId: 'someNumberVarTextId',
@@ -514,6 +556,7 @@ export const someMetadataNumberVarWithOtherAttributeId: BFFMetadataNumberVariabl
 
 export const someMetadataNumberVarWithoutAttribute: BFFMetadataNumberVariable = {
   id: 'someMetadataNumberVarWithoutAttributeId',
+  dataDivider: 'someDataDivider',
   nameInData: 'someNameInDataNumberWithAttributeVar',
   type: 'numberVariable',
   textId: 'someNumberVarTextId',
@@ -527,6 +570,7 @@ export const someMetadataNumberVarWithoutAttribute: BFFMetadataNumberVariable = 
 
 export const someMetadataCollectionVariable: BFFMetadataCollectionVariable = {
   id: 'exampleCollectionVarId',
+  dataDivider: 'someDataDivider',
   nameInData: 'colour',
   type: 'collectionVariable',
   textId: 'exampleCollectionVarText',
@@ -536,6 +580,7 @@ export const someMetadataCollectionVariable: BFFMetadataCollectionVariable = {
 };
 export const someMetadataCollectionVariable2: BFFMetadataCollectionVariable = {
   id: 'exampleCollectionVarId2',
+  dataDivider: 'someDataDivider',
   nameInData: 'colour2',
   type: 'collectionVariable',
   textId: 'exampleCollectionVarText',
@@ -545,6 +590,7 @@ export const someMetadataCollectionVariable2: BFFMetadataCollectionVariable = {
 };
 export const someMetadataCollectionWithOtherIdVariable: BFFMetadataCollectionVariable = {
   id: 'exampleCollectionVarOtherId',
+  dataDivider: 'someDataDivider',
   nameInData: 'colour',
   type: 'collectionVariable',
   textId: 'exampleCollectionVarText',
@@ -555,6 +601,7 @@ export const someMetadataCollectionWithOtherIdVariable: BFFMetadataCollectionVar
 
 export const exampleOtherCollectionVarId: BFFMetadataCollectionVariable = {
   id: 'exampleOtherCollectionVarId',
+  dataDivider: 'someDataDivider',
   nameInData: 'colour',
   type: 'collectionVariable',
   textId: 'exampleCollectionVarText',
@@ -565,6 +612,7 @@ export const exampleOtherCollectionVarId: BFFMetadataCollectionVariable = {
 
 export const someMetadataCollectionVariableWithAttribute: BFFMetadataCollectionVariable = {
   id: 'someMetadataCollectionVariableWithAttributeId',
+  dataDivider: 'someDataDivider',
   nameInData: 'colourAttributeVar',
   type: 'collectionVariable',
   textId: 'exampleCollectionVarText',
@@ -579,6 +627,7 @@ export const someMetadataCollectionVariableWithAttribute: BFFMetadataCollectionV
 
 export const someMetadataCollectionVariableWithTwoAttributes: BFFMetadataCollectionVariable = {
   id: 'someMetadataCollectionVariableWithAttributeId2',
+  dataDivider: 'someDataDivider',
   nameInData: 'colourAttributeVar',
   type: 'collectionVariable',
   textId: 'exampleCollectionVarText',
@@ -596,6 +645,7 @@ export const someMetadataCollectionVariableWithTwoAttributes: BFFMetadataCollect
 
 export const someMetadataItemCollection: BFFMetadataItemCollection = {
   id: 'exampleCollection',
+  dataDivider: 'someDataDivider',
   nameInData: 'colour',
   type: 'itemCollection',
   textId: 'exampleCollectionText',
@@ -608,6 +658,7 @@ export const someMetadataItemCollection: BFFMetadataItemCollection = {
 };
 export const someMetadataCollectionItemBlue: BFFMetadata = {
   id: 'exampleBlueItem',
+  dataDivider: 'someDataDivider',
   nameInData: 'blue',
   type: 'collectionItem',
   textId: 'exampleBlueItemText',
@@ -616,6 +667,7 @@ export const someMetadataCollectionItemBlue: BFFMetadata = {
 
 export const someMetadataCollectionItemPink: BFFMetadata = {
   id: 'examplePinkItem',
+  dataDivider: 'someDataDivider',
   nameInData: 'pink',
   type: 'collectionItem',
   textId: 'examplePinkItemText',
@@ -624,6 +676,7 @@ export const someMetadataCollectionItemPink: BFFMetadata = {
 
 export const someMetadataCollectionItemYellow: BFFMetadata = {
   id: 'exampleYellowItem',
+  dataDivider: 'someDataDivider',
   nameInData: 'yellow',
   type: 'collectionItem',
   textId: 'exampleYellowItemText',
@@ -632,6 +685,7 @@ export const someMetadataCollectionItemYellow: BFFMetadata = {
 
 export const someRecordInfo: BFFMetadataGroup = {
   id: 'someRecordInfoId',
+  dataDivider: 'someDataDivider',
   nameInData: 'someRecordInfoNameInData',
   type: 'group',
   textId: 'textId345',
@@ -1042,6 +1096,7 @@ export const someValidationTypeDataFaultyChildReference: BFFValidationType = {
 
 export const someNewMetadataGroupFaultyChildReference: BFFMetadataGroup = {
   id: 'someNewMetadataGroupFaultyChildReferenceId',
+  dataDivider: 'someDataDivider',
   nameInData: 'someNameInData',
   type: 'group',
   textId: 'textId345',
@@ -1062,6 +1117,7 @@ export const someNewMetadataGroupFaultyChildReference: BFFMetadataGroup = {
 
 export const someMetadataRecordLink: BFFMetadataRecordLink = {
   id: 'nationalSubjectCategoryLinkId',
+  dataDivider: 'someDataDivider',
   nameInData: 'nationalSubjectCategory',
   type: 'recordLink',
   textId: 'nationalSubjectCategoryLinkText',
@@ -1070,6 +1126,7 @@ export const someMetadataRecordLink: BFFMetadataRecordLink = {
 };
 export const someNewRecordLink: BFFMetadataRecordLink = {
   id: 'someNewRecordLinkId',
+  dataDivider: 'someDataDivider',
   nameInData: 'someNewRecordLink',
   type: 'recordLink',
   textId: 'someNewRecordLinkText',
@@ -1105,6 +1162,7 @@ export const pSomeNewRecordLink: BFFPresentationRecordLink = {
 
 export const someMetadataRecordLinkWithAttributes: BFFMetadataRecordLink = {
   id: 'nationalSubjectCategoryLinkWithAttributesId',
+  dataDivider: 'someDataDivider',
   nameInData: 'nationalSubjectCategoryWithAttributes',
   type: 'recordLink',
   textId: 'nationalSubjectCategoryLinkText',
@@ -1119,6 +1177,7 @@ export const someMetadataRecordLinkWithAttributes: BFFMetadataRecordLink = {
 
 export const someMetadataRepeatingRecordLinkWithAttributes: BFFMetadataRecordLink = {
   id: 'nationalSubjectCategoryLinkRepeatingWithAttributesId',
+  dataDivider: 'someDataDivider',
   nameInData: 'nationalSubjectCategoryRepeatingWithAttributes',
   type: 'recordLink',
   textId: 'nationalSubjectCategoryLinkText',
@@ -1154,6 +1213,7 @@ export const someSimpleValidationTypeData: BFFValidationType = {
 
 export const someNewSimpleMetadataGroup: BFFMetadataGroup = {
   id: 'someNewMetadataGroup2Id',
+  dataDivider: 'someDataDivider',
   nameInData: 'someNewMetadataGroupNameInData',
   type: 'group',
   textId: 'textId345',
@@ -1191,6 +1251,7 @@ export const someSimpleValidationTypeDataWithAttributes: BFFValidationType = {
 
 export const someNewSimpleMetadataGroupWithAttributes: BFFMetadataGroup = {
   id: 'someNewMetadataGroup2WithAttributesId',
+  dataDivider: 'someDataDivider',
   nameInData: 'someNewMetadataGroupWithAttributesNameInData',
   type: 'group',
   textId: 'textId345',
@@ -1249,6 +1310,7 @@ export const someSimpleValidationTypeRepeatingGroups: BFFValidationType = {
 
 export const someNewSimpleMetadataGroupRepeatingGroups: BFFMetadataGroup = {
   id: 'someNewMetadataGroupRepeatingGroupsId',
+  dataDivider: 'someDataDivider',
   nameInData: 'someNewMetadataGroupRepeatingGroupsNameInData',
   type: 'group',
   textId: 'textId345',
@@ -1264,6 +1326,7 @@ export const someNewSimpleMetadataGroupRepeatingGroups: BFFMetadataGroup = {
 
 export const someManuscriptGroup: BFFMetadataGroup = {
   id: 'someManuscriptGroupId',
+  dataDivider: 'someDataDivider',
   nameInData: 'someManuscriptGroupNameInData',
   type: 'group',
   textId: 'textId345',
@@ -1333,6 +1396,7 @@ export const pSomeManuscriptContainer: BFFPresentationSurroundingContainer = {
 
 export const someArchiveNumberTextVar: BFFMetadataTextVariable = {
   id: 'archiveNumberTextVarId',
+  dataDivider: 'someDataDivider',
   nameInData: 'archiveNumber',
   type: 'textVariable',
   textId: 'someTextId',
@@ -1342,6 +1406,7 @@ export const someArchiveNumberTextVar: BFFMetadataTextVariable = {
 
 export const someLocalIdTextVar: BFFMetadataTextVariable = {
   id: 'localIdTextVarId',
+  dataDivider: 'someDataDivider',
   nameInData: 'localId',
   type: 'textVariable',
   textId: 'someTextId',
@@ -1351,6 +1416,7 @@ export const someLocalIdTextVar: BFFMetadataTextVariable = {
 
 export const someScopusIdTextVar: BFFMetadataTextVariable = {
   id: 'scopusIdTextVarId',
+  dataDivider: 'someDataDivider',
   nameInData: 'scopusId',
   type: 'textVariable',
   textId: 'someTextId',
@@ -1411,6 +1477,7 @@ export const newNationSubjectCategoryValidationType: BFFValidationType = {
 
 export const newNationalSubjectCategoryRecordTypeNewGroup: BFFMetadataGroup = {
   id: 'nationalSubjectCategoryRecordTypeNewGroup',
+  dataDivider: 'someDataDivider',
   nameInData: 'nationalSubjectCategory',
   type: 'group',
   textId: 'nationalSubjectCategoryRecordTypeNewGroupText',
@@ -1431,6 +1498,7 @@ export const newNationalSubjectCategoryRecordTypeNewGroup: BFFMetadataGroup = {
 
 export const newNationalSubjectCategoryRecordTypeGroup: BFFMetadataGroup = {
   id: 'nationalSubjectCategoryRecordTypeGroup',
+  dataDivider: 'someDataDivider',
   nameInData: 'nationalSubjectCategory',
   type: 'group',
   textId: 'nationalSubjectCategoryRecordTypeNewGroupText',
@@ -1451,6 +1519,7 @@ export const newNationalSubjectCategoryRecordTypeGroup: BFFMetadataGroup = {
 
 export const newNationSubjectCategoryMetadataSubjectSweTextVariable: BFFMetadataTextVariable = {
   id: 'subjectSweTextVar',
+  dataDivider: 'someDataDivider',
   nameInData: 'subject',
   type: 'textVariable',
   textId: 'subjectSweTextVarText',
@@ -1464,6 +1533,7 @@ export const newNationSubjectCategoryMetadataSubjectSweTextVariable: BFFMetadata
 };
 export const newNationSubjectCategoryMetadataSubjectEngTextVariable: BFFMetadataTextVariable = {
   id: 'subjectEngTextVar',
+  dataDivider: 'someDataDivider',
   nameInData: 'subject',
   type: 'textVariable',
   textId: 'subjectEngTextVarText',
@@ -1479,6 +1549,7 @@ export const newNationSubjectCategoryMetadataSubjectEngTextVariable: BFFMetadata
 export const newNationSubjectCategoryMetadataSubjectSweLangCollVariable: BFFMetadataCollectionVariable =
   {
     id: 'languageSweCollectionVar',
+    dataDivider: 'someDataDivider',
     nameInData: 'language',
     type: 'collectionVariable',
     textId: 'languageCollectionVarText',
@@ -1490,6 +1561,7 @@ export const newNationSubjectCategoryMetadataSubjectSweLangCollVariable: BFFMeta
 export const newNationSubjectCategoryMetadataSubjectEngLangCollVariable: BFFMetadataCollectionVariable =
   {
     id: 'languageEngCollectionVar',
+    dataDivider: 'someDataDivider',
     nameInData: 'language',
     type: 'collectionVariable',
     textId: 'languageCollectionVarText',
@@ -1543,6 +1615,7 @@ export const divaOutputValidationType: BFFValidationType = {
 
 export const preprintNewGroup: BFFMetadataGroup = {
   id: 'preprintNewGroup',
+  dataDivider: 'someDataDivider',
   nameInData: 'divaOutput',
   type: 'group',
   textId: '',
@@ -1568,6 +1641,7 @@ export const preprintNewGroup: BFFMetadataGroup = {
 
 export const domainCollectionVar: BFFMetadataCollectionVariable = {
   id: 'domainCollectionVar',
+  dataDivider: 'someDataDivider',
   nameInData: 'domain',
   type: 'collectionVariable',
   textId: 'exampleCollectionVarText',
@@ -1577,6 +1651,7 @@ export const domainCollectionVar: BFFMetadataCollectionVariable = {
 
 export const outputTypeGroup: BFFMetadataGroup = {
   id: 'outputTypeGroup',
+  dataDivider: 'someDataDivider',
   nameInData: 'outputType',
   type: 'group',
   textId: '',
@@ -1591,6 +1666,7 @@ export const outputTypeGroup: BFFMetadataGroup = {
 };
 export const outputTypeCollectionVar: BFFMetadataCollectionVariable = {
   id: 'outputTypeCollectionVar',
+  dataDivider: 'someDataDivider',
   nameInData: 'genre',
   type: 'collectionVariable',
   textId: 'exampleCollectionVarText',
@@ -1605,6 +1681,7 @@ export const outputTypeCollectionVar: BFFMetadataCollectionVariable = {
 
 export const typeOutputTypeCollectionVar: BFFMetadataCollectionVariable = {
   id: 'typeOutputTypeCollectionVar',
+  dataDivider: 'someDataDivider',
   nameInData: 'type',
   type: 'collectionVariable',
   textId: 'exampleCollectionVarText',
@@ -1615,6 +1692,7 @@ export const typeOutputTypeCollectionVar: BFFMetadataCollectionVariable = {
 
 export const titleGroup: BFFMetadataGroup = {
   id: 'titleGroup',
+  dataDivider: 'someDataDivider',
   nameInData: 'title',
   type: 'group',
   textId: '',
@@ -1630,6 +1708,7 @@ export const titleGroup: BFFMetadataGroup = {
 
 export const mainTitleTextVar: BFFMetadataTextVariable = {
   id: 'mainTitle',
+  dataDivider: 'someDataDivider',
   nameInData: 'mainTitle',
   type: 'textVariable',
   textId: 'someTextId',
@@ -1652,6 +1731,7 @@ export const someValidationTypeForRepeatingGroupsNameInDataId: BFFValidationType
 
 export const someNewMetadataGroupRepeatingGroupsNameInDataGroup: BFFMetadataGroup = {
   id: 'someNewMetadataGroupRepeatingGroupsNameInDataGroup',
+  dataDivider: 'someDataDivider',
   nameInData: 'someRootNameInData',
   type: 'group',
   textId: '',
@@ -1672,6 +1752,7 @@ export const someNewMetadataGroupRepeatingGroupsNameInDataGroup: BFFMetadataGrou
 
 export const authorGroup: BFFMetadataGroup = {
   id: 'authorGroup',
+  dataDivider: 'someDataDivider',
   nameInData: 'author',
   type: 'group',
   textId: '',
@@ -1697,6 +1778,7 @@ export const authorGroup: BFFMetadataGroup = {
 };
 export const authorGroup2: BFFMetadataGroup = {
   id: 'authorOtherGroup',
+  dataDivider: 'someDataDivider',
   nameInData: 'author',
   type: 'group',
   textId: '',
@@ -1722,6 +1804,7 @@ export const authorGroup2: BFFMetadataGroup = {
 
 export const givenNameTextVar: BFFMetadataTextVariable = {
   id: 'givenNameTextVar',
+  dataDivider: 'someDataDivider',
   nameInData: 'givenName',
   type: 'textVariable',
   textId: 'someTextId',
@@ -1730,6 +1813,7 @@ export const givenNameTextVar: BFFMetadataTextVariable = {
 };
 export const familyNameTextVar: BFFMetadataTextVariable = {
   id: 'familyNameTextVar',
+  dataDivider: 'someDataDivider',
   nameInData: 'familyName',
   type: 'textVariable',
   textId: 'someTextId',
@@ -1752,6 +1836,7 @@ export const someValidationTypeForRepeatingCollectionsNameInDataId: BFFValidatio
 
 export const someNewMetadataGroupRepeatingCollectionNameInDataGroup: BFFMetadataGroup = {
   id: 'someNewMetadataGroupRepeatingCollectionNameInDataGroup',
+  dataDivider: 'someDataDivider',
   nameInData: 'genreGroup',
   type: 'group',
   textId: '',
@@ -1772,6 +1857,7 @@ export const someNewMetadataGroupRepeatingCollectionNameInDataGroup: BFFMetadata
 
 export const genreCollectionVar: BFFMetadataCollectionVariable = {
   id: 'genreCollectionVar',
+  dataDivider: 'someDataDivider',
   nameInData: 'genre',
   type: 'collectionVariable',
   textId: 'exampleCollectionVarText',
@@ -1786,6 +1872,7 @@ export const genreCollectionVar: BFFMetadataCollectionVariable = {
 
 export const genreOtherCollectionVar: BFFMetadataCollectionVariable = {
   id: 'genreOtherCollectionVar',
+  dataDivider: 'someDataDivider',
   nameInData: 'genre',
   type: 'collectionVariable',
   textId: 'exampleCollectionVarText',
@@ -1813,6 +1900,7 @@ export const someValidationTypeForRepeatingRecordLinksNameInDataId: BFFValidatio
 
 export const someNewMetadataGroupRepeatingRecordLinksNameInDataGroup: BFFMetadataGroup = {
   id: 'someNewMetadataGroupRepeatingRecordLinksNameInDataGroup',
+  dataDivider: 'someDataDivider',
   nameInData: 'recordLinkGroup',
   type: 'group',
   textId: '',
@@ -1833,6 +1921,7 @@ export const someNewMetadataGroupRepeatingRecordLinksNameInDataGroup: BFFMetadat
 
 export const someNewRecordLinkId: BFFMetadataRecordLink = {
   id: 'someNewRecordLinkId',
+  dataDivider: 'someDataDivider',
   nameInData: 'newRecordLink',
   type: 'recordLink',
   textId: 'nationalSubjectCategoryLinkText',
@@ -1847,6 +1936,7 @@ export const someNewRecordLinkId: BFFMetadataRecordLink = {
 
 export const someOtherNewRecordLinkId: BFFMetadataRecordLink = {
   id: 'someOtherNewRecordLinkId',
+  dataDivider: 'someDataDivider',
   nameInData: 'newRecordLink',
   type: 'recordLink',
   textId: 'nationalSubjectCategoryLinkText',
@@ -1874,6 +1964,7 @@ export const someValidationTypeForRepeatingTitleInfoId: BFFValidationType = {
 
 export const someNewMetadataGroupRepeatingTitleInfoNameInDataGroup: BFFMetadataGroup = {
   id: 'someNewMetadataGroupRepeatingTitleInfoNameInDataGroup',
+  dataDivider: 'someDataDivider',
   nameInData: 'output',
   type: 'group',
   textId: '',
@@ -1911,6 +2002,7 @@ export const pSomeNewMetadataGroupRepeatingTitleInfoNameInDataGroup: BFFPresenta
 
 export const someNewMetadataGroupTitleInfoGroup: BFFMetadataGroup = {
   id: 'someNewMetadataGroupTitleInfoGroup',
+  dataDivider: 'someDataDivider',
   nameInData: 'titleInfo',
   type: 'group',
   textId: '',
@@ -1956,6 +2048,7 @@ export const pSomeNewMetadataGroupTitleInfoAlternativePGroup: BFFPresentationGro
 
 export const someNewMetadataGroupTitleInfoAlternativeGroup: BFFMetadataGroup = {
   id: 'someNewMetadataGroupTitleInfoAlternativeGroup',
+  dataDivider: 'someDataDivider',
   nameInData: 'titleInfo',
   type: 'group',
   textId: '',
@@ -1979,6 +2072,7 @@ export const someNewMetadataGroupTitleInfoAlternativeGroup: BFFMetadataGroup = {
 
 export const typeCollVariable: BFFMetadataCollectionVariable = {
   id: 'typeCollectionVar',
+  dataDivider: 'someDataDivider',
   nameInData: 'type',
   type: 'collectionVariable',
   textId: 'typeCollectionVarText',
@@ -1989,6 +2083,7 @@ export const typeCollVariable: BFFMetadataCollectionVariable = {
 
 export const newLangCollVariable: BFFMetadataCollectionVariable = {
   id: 'newLangCollectionVar',
+  dataDivider: 'someDataDivider',
   nameInData: 'language',
   type: 'collectionVariable',
   textId: 'engCollectionVarText',
@@ -1998,6 +2093,7 @@ export const newLangCollVariable: BFFMetadataCollectionVariable = {
 
 export const typeItemCollection: BFFMetadataItemCollection = {
   id: 'typeCollection',
+  dataDivider: 'someDataDivider',
   nameInData: 'type',
   type: 'itemCollection',
   textId: 'typeCollectionText',
@@ -2007,6 +2103,7 @@ export const typeItemCollection: BFFMetadataItemCollection = {
 
 export const newLangItemCollection: BFFMetadataItemCollection = {
   id: 'newLangCollection',
+  dataDivider: 'someDataDivider',
   nameInData: 'type',
   type: 'itemCollection',
   textId: 'typeCollectionText',
@@ -2016,6 +2113,7 @@ export const newLangItemCollection: BFFMetadataItemCollection = {
 
 export const typeCollectionItemAlternative: BFFMetadata = {
   id: 'alternativeItem',
+  dataDivider: 'someDataDivider',
   nameInData: 'alternative',
   type: 'collectionItem',
   textId: 'alternativeItemText',
@@ -2024,6 +2122,7 @@ export const typeCollectionItemAlternative: BFFMetadata = {
 
 export const newLangItemCollectionItemEng: BFFMetadata = {
   id: 'engItem',
+  dataDivider: 'someDataDivider',
   nameInData: 'english',
   type: 'collectionItem',
   textId: 'alternativeItemText',
@@ -2032,6 +2131,7 @@ export const newLangItemCollectionItemEng: BFFMetadata = {
 
 export const newLangItemCollectionItemSwe: BFFMetadata = {
   id: 'sweItem',
+  dataDivider: 'someDataDivider',
   nameInData: 'swedish',
   type: 'collectionItem',
   textId: 'alternativeItemText',
@@ -2040,6 +2140,7 @@ export const newLangItemCollectionItemSwe: BFFMetadata = {
 
 export const someMainTitleTitleInfoATextVariable: BFFMetadataTextVariable = {
   id: 'someMainTitleVar',
+  dataDivider: 'someDataDivider',
   nameInData: 'title',
   type: 'textVariable',
   textId: 'someTextId',
@@ -2071,6 +2172,7 @@ export const someValidationTypeNamePartId: BFFValidationType = {
 
 export const someNewMetadataGroupRepeatingNamePartGroup: BFFMetadataGroup = {
   id: 'someNewMetadataGroupNamePartGroup',
+  dataDivider: 'someDataDivider',
   nameInData: 'name',
   type: 'group',
   textId: '',
@@ -2091,6 +2193,7 @@ export const someNewMetadataGroupRepeatingNamePartGroup: BFFMetadataGroup = {
 
 export const someNamePartTextVariable: BFFMetadataTextVariable = {
   id: 'someNamePartTextVar',
+  dataDivider: 'someDataDivider',
   nameInData: 'namePart',
   type: 'textVariable',
   textId: 'someTextId',
@@ -2100,6 +2203,7 @@ export const someNamePartTextVariable: BFFMetadataTextVariable = {
 
 export const someOtherNamePartTextVariable: BFFMetadataTextVariable = {
   id: 'someOtherNamePartTextVar',
+  dataDivider: 'someDataDivider',
   nameInData: 'namePart',
   type: 'textVariable',
   textId: 'someTextId',
@@ -2127,6 +2231,7 @@ export const someValidationTypeNamePartWithAttributesId: BFFValidationType = {
 
 export const someNewMetadataGroupRepeatingNamePartWithAttributesGroup: BFFMetadataGroup = {
   id: 'someNewMetadataGroupRepeatingNamePartWithAttributesGroup',
+  dataDivider: 'someDataDivider',
   nameInData: 'name',
   type: 'group',
   textId: '',
@@ -2147,6 +2252,7 @@ export const someNewMetadataGroupRepeatingNamePartWithAttributesGroup: BFFMetada
 
 export const someNamePartWithAttributesTextVariable: BFFMetadataTextVariable = {
   id: 'someNamePartWithAttributesTextVariable',
+  dataDivider: 'someDataDivider',
   nameInData: 'namePart',
   type: 'textVariable',
   textId: 'someTextId',
@@ -2161,6 +2267,7 @@ export const someNamePartWithAttributesTextVariable: BFFMetadataTextVariable = {
 
 export const someOtherNamePartWithAttributesTextVariable: BFFMetadataTextVariable = {
   id: 'someOtherNamePartWithAttributesTextVariable',
+  dataDivider: 'someDataDivider',
   nameInData: 'namePart',
   type: 'textVariable',
   textId: 'someTextId',
@@ -2188,6 +2295,7 @@ export const someValidationTypeForRequiredAndRepeatingId: BFFValidationType = {
 
 export const someNewMetadataRequiredAndRepeatingRootGroup: BFFMetadataGroup = {
   id: 'someNewMetadataRequiredAndRepeatingRootGroup',
+  dataDivider: 'someDataDivider',
   nameInData: 'output',
   type: 'group',
   textId: '',
@@ -2203,6 +2311,7 @@ export const someNewMetadataRequiredAndRepeatingRootGroup: BFFMetadataGroup = {
 
 export const someNewMetadataRequiredAndRepeatingGroup: BFFMetadataGroup = {
   id: 'someNewMetadataRequiredAndRepeatingGroup',
+  dataDivider: 'someDataDivider',
   nameInData: 'language',
   type: 'group',
   textId: '',
@@ -2218,6 +2327,7 @@ export const someNewMetadataRequiredAndRepeatingGroup: BFFMetadataGroup = {
 
 export const someLanguageTerm: BFFMetadataTextVariable = {
   id: 'someLanguageTerm',
+  dataDivider: 'someDataDivider',
   nameInData: 'languageTerm',
   type: 'textVariable',
   textId: 'someTextId',
@@ -2235,6 +2345,7 @@ export const someLanguageTerm: BFFMetadataTextVariable = {
 
 export const typeCodeCollectionVar: BFFMetadataCollectionVariable = {
   id: 'typeCodeCollectionVar',
+  dataDivider: 'someDataDivider',
   nameInData: 'type',
   type: 'collectionVariable',
   textId: 'typeCollectionVarText',
@@ -2244,6 +2355,7 @@ export const typeCodeCollectionVar: BFFMetadataCollectionVariable = {
 };
 export const authorityLanguageTermCollectionVar: BFFMetadataCollectionVariable = {
   id: 'authorityLanguageTermCollectionVar',
+  dataDivider: 'someDataDivider',
   nameInData: 'authority',
   type: 'collectionVariable',
   textId: 'authorityCollectionVarText',

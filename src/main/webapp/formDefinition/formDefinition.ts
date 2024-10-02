@@ -17,6 +17,7 @@
  *     along with DiVA Client.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+import * as console from 'console';
 import {
   BFFAttributeReference,
   BFFCollectionItemReference,
@@ -101,6 +102,14 @@ export const createLinkedRecordDefinition = (
   };
 };
 
+function getDataDivider(
+  dependencies: Dependencies,
+  validationType: any,
+  metadataGroupName: string
+) {
+  return dependencies.metadataPool.get(validationType[metadataGroupName]).dataDivider;
+}
+
 /**
  * Creates a complete form definition
  * @param dependencies
@@ -112,27 +121,33 @@ export const createFormDefinition = (
   validationTypeId: string,
   mode: 'create' | 'update' | 'view' | 'list'
 ) => {
+  const validationType = dependencies.validationTypePool.get(validationTypeId);
+
   switch (mode) {
     case 'create':
       return {
         validationTypeId,
+        dataDivider: getDataDivider(dependencies, validationType, 'newMetadataGroupId'),
         form: createFormDefinitionForCreate(dependencies, validationTypeId)
       };
 
     case 'update':
       return {
         validationTypeId,
+        dataDivider: getDataDivider(dependencies, validationType, 'metadataGroupId'),
         form: createFormDefinitionForUpdate(dependencies, validationTypeId)
       };
     case 'list':
       return {
         validationTypeId,
+        dataDivider: getDataDivider(dependencies, validationType, 'newMetadataGroupId'),
         form: createFormDefinitionForList(dependencies, validationTypeId)
       };
 
     default:
       return {
         validationTypeId,
+        dataDivider: getDataDivider(dependencies, validationType, 'newMetadataGroupId'),
         form: createFormDefinitionForView(dependencies, validationTypeId)
       };
   }

@@ -7,6 +7,11 @@ export const extractIdFromRecordInfo = (coraRecordGroup: DataGroup) => {
   return getFirstDataAtomicValueWithNameInData(recordInfo, 'id');
 };
 
+export const extractDataDividerFromRecordInfo = (coraRecordGroup: DataGroup) => {
+  const recordInfo = getFirstDataGroupWithNameInData(coraRecordGroup, 'recordInfo') as DataGroup;
+  return extractLinkedRecordIdFromNamedRecordLink(recordInfo, 'dataDivider');
+};
+
 export const extractAttributeValueByName = (
   dataRecordGroup: DataGroup,
   attributeName: string

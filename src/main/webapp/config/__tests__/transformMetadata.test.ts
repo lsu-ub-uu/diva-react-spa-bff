@@ -47,6 +47,7 @@ describe('transformMetadata', () => {
       expect(metadataList).toHaveLength(1);
       expect(metadataList[0]).toStrictEqual({
         id: 'someTextVar',
+        dataDivider: 'someDataDivider',
         nameInData: 'someNameInData',
         type: 'textVariable',
         textId: 'someTextVarText',
@@ -61,6 +62,7 @@ describe('transformMetadata', () => {
       expect(metadataList).toHaveLength(1);
       expect(metadataList[0]).toStrictEqual({
         id: 'someTextVar',
+        dataDivider: 'cora',
         nameInData: 'someNameInData',
         type: 'textVariable',
         textId: 'someTextVarText',
@@ -77,6 +79,7 @@ describe('transformMetadata', () => {
       expect(metadataList).toHaveLength(1);
       expect(metadataList[0]).toStrictEqual({
         id: 'someGroup',
+        dataDivider: 'testSystem',
         nameInData: 'someGroupNameInData',
         type: 'group',
         textId: 'someGroupText',
@@ -112,6 +115,7 @@ describe('transformMetadata', () => {
       expect(metadataList).toHaveLength(1);
       expect(metadataList[0]).toStrictEqual({
         id: 'someNumberVar',
+        dataDivider: 'cora',
         nameInData: 'someNameInDataNumberVar',
         type: 'numberVariable',
         textId: 'someNumberVarText',
@@ -130,6 +134,7 @@ describe('transformMetadata', () => {
       expect(metadataList).toHaveLength(1);
       expect(metadataList[0]).toStrictEqual({
         id: 'someNumberVar',
+        dataDivider: 'cora',
         nameInData: 'someNameInDataNumberVar',
         type: 'numberVariable',
         textId: 'someNumberVarText',
@@ -151,6 +156,7 @@ describe('transformMetadata', () => {
       expect(metadataList).toHaveLength(1);
       expect(metadataList[0]).toStrictEqual({
         id: 'exampleCollectionVar',
+        dataDivider: 'testSystem',
         nameInData: 'colour',
         type: 'collectionVariable',
         textId: 'exampleCollectionVarText',
@@ -167,6 +173,7 @@ describe('transformMetadata', () => {
       expect(metadataList).toHaveLength(1);
       expect(metadataList[0]).toStrictEqual({
         id: 'exampleCollectionVar',
+        dataDivider: 'testSystem',
         nameInData: 'colour',
         type: 'collectionVariable',
         textId: 'exampleCollectionVarText',
@@ -185,6 +192,7 @@ describe('transformMetadata', () => {
       expect(metadataList).toHaveLength(1);
       expect(metadataList[0]).toStrictEqual({
         id: 'exampleCollection',
+        dataDivider: 'testSystem',
         nameInData: 'colour',
         type: 'itemCollection',
         textId: 'exampleCollectionText',
@@ -204,6 +212,7 @@ describe('transformMetadata', () => {
       expect(metadataList).toHaveLength(1);
       expect(metadataList[0]).toStrictEqual({
         id: 'exampleBlueItem',
+        dataDivider: 'testSystem',
         nameInData: 'blue',
         type: 'collectionItem',
         textId: 'exampleBlueItemText',
@@ -218,6 +227,7 @@ describe('transformMetadata', () => {
       expect(metadataList).toHaveLength(1);
       expect(metadataList[0]).toStrictEqual({
         id: 'demoNewGroup',
+        dataDivider: 'testSystem',
         nameInData: 'book',
         type: 'group',
         textId: 'demoGroupText',
@@ -241,6 +251,7 @@ describe('transformMetadata', () => {
       expect(metadataList).toHaveLength(1);
       expect(metadataList[0]).toStrictEqual({
         id: 'someTextVar',
+        dataDivider: 'testSystem',
         nameInData: 'someNameInData',
         type: 'textVariable',
         textId: 'someTextVarText',
@@ -258,6 +269,7 @@ describe('transformMetadata', () => {
       expect(metadataList).toHaveLength(1);
       expect(metadataList[0]).toStrictEqual({
         id: 'someTextVar',
+        dataDivider: 'testSystem',
         nameInData: 'someNameInData',
         type: 'textVariable',
         textId: 'someTextVarText',
@@ -278,6 +290,7 @@ describe('transformMetadata', () => {
       expect(metadataList).toHaveLength(1);
       expect(metadataList[0]).toStrictEqual({
         id: 'someNumberVar',
+        dataDivider: 'testSystem',
         nameInData: 'someNameInData',
         type: 'numberVariable',
         textId: 'someTextVarText',
@@ -303,6 +316,7 @@ describe('transformMetadata', () => {
       expect(metadataList).toHaveLength(1);
       expect(metadataList[0]).toStrictEqual({
         id: 'someCollectionVar',
+        dataDivider: 'testSystem',
         nameInData: 'someNameInData',
         type: 'collectionVariable',
         textId: 'someTextVarText',
@@ -326,6 +340,7 @@ describe('transformMetadata', () => {
       expect(metadataList).toHaveLength(1);
       expect(metadataList[0]).toStrictEqual({
         id: 'nationalSubjectCategoryLink',
+        dataDivider: 'diva',
         nameInData: 'nationalSubjectCategory',
         type: 'recordLink',
         textId: 'nationalSubjectCategoryLinkText',
@@ -341,6 +356,7 @@ describe('transformMetadata', () => {
       expect(metadataList).toHaveLength(1);
       expect(metadataList[0]).toStrictEqual({
         id: 'nationalSubjectCategoryLink',
+        dataDivider: 'diva',
         nameInData: 'nationalSubjectCategory',
         type: 'recordLink',
         textId: 'nationalSubjectCategoryLinkText',

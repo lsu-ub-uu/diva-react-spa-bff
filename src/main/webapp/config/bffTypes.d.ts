@@ -38,6 +38,7 @@ export interface BFFRecordType extends BFFBase {
 
 export abstract interface BFFMetadata extends BFFBase {
   nameInData: string;
+  dataDivider: string;
   type:
     | 'group'
     | 'numberVariable'
