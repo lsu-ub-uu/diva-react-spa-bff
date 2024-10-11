@@ -37,6 +37,26 @@ const { CORA_API_URL, CORA_LOGIN_URL } = process.env;
 
 axios.defaults.baseURL = CORA_API_URL;
 
+axios.interceptors.request.use((request) => {
+  console.log(`\x1b[47m > ${request.method?.toUpperCase()} ${request.url} \x1b[0m`);
+  return request;
+});
+
+axios.interceptors.response.use(
+  (response) => {
+    console.log(
+      `\x1b[42m < ${response.status} ${response.request.method} ${response.request.path} \x1b[0m`
+    );
+    return response;
+  },
+  (response) => {
+    console.log(
+      `\x1b[41m < ${response.status} ${response.request.method} ${response.request.path} \x1b[0m`
+    );
+    return response;
+  }
+);
+
 const app: Application = express();
 
 configureServer(app);

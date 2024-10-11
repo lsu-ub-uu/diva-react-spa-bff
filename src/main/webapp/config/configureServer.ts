@@ -1,5 +1,6 @@
 import cors from 'cors';
 import 'dotenv/config';
+import morgan from 'morgan';
 
 import express, { Application, Request } from 'express';
 import { getRecordDataListByType } from '../cora/record';
@@ -36,6 +37,7 @@ export const configureServer = (app: Application) => {
       origin: '*'
     })
   );
+  app.use(morgan('dev'));
 
   return app;
 };

@@ -54,7 +54,8 @@ export const transformMetadata = (dataListWrapper: DataListWrapper): BFFMetadata
 const transformCoraRecordToBFFMetaData = (coraRecordWrapper: RecordWrapper): BFFMetadata => {
   const coraRecord = coraRecordWrapper.record;
   const dataRecordGroup = coraRecord.data;
-  return transformRecordGroupMetadataToBFF(dataRecordGroup) as BFFMetadata;
+  const transformedData = transformRecordGroupMetadataToBFF(dataRecordGroup) as BFFMetadata;
+  return transformedData;
 };
 
 const transformRecordGroupMetadataToBFF = (dataRecordGroup: DataGroup) => {
